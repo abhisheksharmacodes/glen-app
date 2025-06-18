@@ -1,0 +1,10 @@
+{
+    "db":{
+        "uri":"mongodb+srv://geekysharma31:QvQjHmGntx7YPVFR@cluster0.66yf3.mongodb.net/"
+    },
+    "server":{
+        "hostname":"http://localhost",
+        "port":4998
+    },
+    "jwtSecret": "your-super-secret-jwt-key-change-this-in-production"
+}
