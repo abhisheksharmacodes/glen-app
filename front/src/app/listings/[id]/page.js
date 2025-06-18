@@ -5,15 +5,49 @@ import Footer from '../../components/Footer';
 import DatePicker from '../../components/DatePicker';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { detailedListingsData } from '../../data/listings';
+import { useState, useEffect } from 'react';
 
 function ListingDetail() {
   const params = useParams();
   const { id } = params;
+  const [listingData, setListingData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const listingData = detailedListingsData[id];
+  useEffect(() => {
+    const fetchListing = async () => {
+      try {
+        const response = await fetch(`http://localhost:4998/api/listings/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch listing details');
+        }
+        const data = await response.json();
+        setListingData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  if (!listingData) {
+    fetchListing();
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <Header />
+        <main className="max-w-7xl mx-auto px-8 sm:px-16 pt-6">
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !listingData) {
     return (
       <div>
         <Header />
@@ -36,11 +70,21 @@ function ListingDetail() {
           {/* Image Gallery */}
           <div className="grid grid-cols-2 grid-rows-2 gap-2 rounded-xl overflow-hidden mb-6">
             <div className="relative col-span-2 row-span-2 h-[400px]">
-              <Image src={listingData.images[0]} layout="fill" objectFit="cover" alt="Main Listing Image" />
+              <Image 
+                src={listingData.images[0]} 
+                fill
+                style={{ objectFit: "cover" }}
+                alt="Main Listing Image" 
+              />
             </div>
             {listingData.images.slice(1, 5).map((image, index) => (
               <div key={index} className="relative h-[200px]">
-                <Image src={image} layout="fill" objectFit="cover" alt={`Listing Image ${index + 1}`} />
+                <Image 
+                  src={image} 
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt={`Listing Image ${index + 1}`} 
+                />
               </div>
             ))}
           </div>
@@ -68,7 +112,12 @@ function ListingDetail() {
               {/* Host Info */}
               <div className="flex items-center space-x-4 border-t border-b py-6 mb-6">
                 <div className="relative h-12 w-12 rounded-full overflow-hidden">
-                  <Image src={listingData.host.avatar} layout="fill" objectFit="cover" alt="Host Avatar" />
+                  <Image 
+                    src={listingData.host.avatar} 
+                    fill
+                    style={{ objectFit: "cover" }}
+                    alt="Host Avatar" 
+                  />
                 </div>
                 <div>
                   <h4 className="font-semibold">Hosted by {listingData.host.name}</h4>
@@ -84,7 +133,7 @@ function ListingDetail() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 {listingData.description.features.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-2">
-                    <i className={feature.icon}></i> {/* Assuming font-awesome or similar for icons */}
+                    <i className={feature.icon}></i>
                     <p>{feature.text}</p>
                   </div>
                 ))}
@@ -105,10 +154,11 @@ function ListingDetail() {
                   id="guests"
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                 >
-                  <option>1 guest</option>
-                  <option>2 guests</option>
-                  <option>3 guests</option>
-                  <option>4 guests</option>
+                  {[...Array(listingData.guests)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1} {i === 0 ? 'guest' : 'guests'}
+                    </option>
+                  ))}
                 </select>
               </div>
               <button className="w-full px-6 py-3 mt-6 text-white bg-red-400 rounded-lg hover:bg-red-500 transition duration-150">
