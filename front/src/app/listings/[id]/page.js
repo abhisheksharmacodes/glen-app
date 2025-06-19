@@ -13,6 +13,12 @@ function ListingDetail() {
   const [listingData, setListingData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [guests, setGuests] = useState(1);
+  const [bookingError, setBookingError] = useState('');
+  const [bookingSuccess, setBookingSuccess] = useState('');
+  const [bookedRanges, setBookedRanges] = useState([]);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -29,9 +35,64 @@ function ListingDetail() {
         setIsLoading(false);
       }
     };
-
+    const fetchBookings = async () => {
+      try {
+        const res = await fetch(`http://localhost:4998/api/bookings?listingId=${id}`);
+        if (res.ok) {
+          const bookings = await res.json();
+          setBookedRanges(bookings.map(b => ({ start: new Date(b.startDate), end: new Date(b.endDate) })));
+        }
+      } catch {}
+    };
     fetchListing();
+    fetchBookings();
   }, [id]);
+
+  const handleDateChange = (start, end) => {
+    setStartDate(start);
+    setEndDate(end);
+  };
+
+  const handleGuestChange = (e) => {
+    setGuests(Number(e.target.value));
+  };
+
+  const handleReserve = async () => {
+    setBookingError('');
+    setBookingSuccess('');
+    // Assume JWT token in localStorage
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setBookingError('Please log in to reserve.');
+      return;
+    }
+    try {
+      const res = await fetch('http://localhost:4998/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          listingId: id,
+          startDate,
+          endDate,
+          guests
+        })
+      });
+      if (res.status === 409) {
+        const data = await res.json();
+        setBookingError(data.message || 'already booked, kindly select different date(s)');
+      } else if (!res.ok) {
+        const data = await res.json();
+        setBookingError(data.message || 'Booking failed');
+      } else {
+        setBookingSuccess('Booking successful!');
+      }
+    } catch (err) {
+      setBookingError('Booking failed');
+    }
+  };
 
   if (isLoading) {
     return (
@@ -147,12 +208,14 @@ function ListingDetail() {
                 <p className="text-2xl font-bold">{listingData.currency}{listingData.price} <span className="font-normal text-base text-gray-600">/ night</span></p>
                 <p className="text-sm text-gray-600">Prices include all fees</p>
               </div>
-              <DatePicker />
+              <DatePicker startDate={startDate} endDate={endDate} onChange={handleDateChange} disabledRanges={bookedRanges} />
               <div className="mt-4">
                 <label htmlFor="guests" className="block text-sm font-medium text-gray-700">Guests</label>
                 <select
                   id="guests"
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  value={guests}
+                  onChange={handleGuestChange}
                 >
                   {[...Array(listingData.guests)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
@@ -161,7 +224,9 @@ function ListingDetail() {
                   ))}
                 </select>
               </div>
-              <button className="w-full px-6 py-3 mt-6 text-white bg-red-400 rounded-lg hover:bg-red-500 transition duration-150">
+              {bookingError && <div className="mt-2 text-red-500">{bookingError}</div>}
+              {bookingSuccess && <div className="mt-2 text-green-600">{bookingSuccess}</div>}
+              <button className="w-full px-6 py-3 mt-6 text-white bg-red-400 rounded-lg hover:bg-red-500 transition duration-150" onClick={handleReserve}>
                 Reserve
               </button>
             </div>

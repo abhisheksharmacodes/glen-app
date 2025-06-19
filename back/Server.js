@@ -6,6 +6,7 @@ const openingRoutes = require("./routes/opening");
 const facultyRoutes = require("./routes/faculty");
 const authRoutes = require("./routes/auth");
 const listingRoutes = require("./routes/listingRoutes");
+const bookingRoutes = require("./routes/booking");
 const config = require("config");
 
 // Force IPv4 resolution
@@ -24,6 +25,7 @@ app.use("/api/openings", openingRoutes);
 app.use("/api/faculty", facultyRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/listings", listingRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 // Database Connection
 mongoose

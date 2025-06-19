@@ -32,57 +32,6 @@ export default function Home() {
     fetchListings();
   }, []);
 
-  const exploreData = [
-    {
-      img: "https://links.papareact.com/5j2",
-      location: "London",
-      distance: "45-minute drive",
-    },
-    {
-      img: "https://links.papareact.com/1jm",
-      location: "Manchester",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/dmk",
-      location: "Liverpool",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/d2l",
-      location: "York",
-      distance: "4-hour drive",
-    },
-    {
-      img: "https://papareact.com/ijc",
-      location: "Cardiff",
-      distance: "45-minute drive",
-    },
-    {
-      img: "https://links.papareact.com/msp",
-      location: "Birkenhead",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/2pour",
-      location: "Newquay",
-      distance: "6-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/40m",
-      location: "Hove",
-      distance: "2-hour drive",
-    },
-  ];
-
-  const largeCardData = {
-    img: "https://links.papareact.com/4nj",
-    title: "The Greatest Outdoors",
-    description: "Wishlists curated by Airbnb.",
-    buttonText: "Get Inspired",
-  };
-
-  // Filter properties based on search input
   const filteredProperties = listings.filter(property => 
     property.location.toLowerCase().includes(searchInput.toLowerCase())
   );
