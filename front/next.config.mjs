@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["links.papareact.com","www.craftedbeds.co.uk","plus.unsplash.com","www.theleela.com","5.imimg.com", "upload.wikimedia.org", "papareact.com", "www.orient-express.com","static.leonardo-hotels.com",'htl-img-res-new.s3.ap-south-1.amazonaws.com'],
+    remotePatterns: [
+      // WILDCARD FOR ANY HOSTNAME (USE WITH EXTREME CAUTION IN PRODUCTION)
+      {
+        protocol: 'https',
+        hostname: '**', // Allows any HTTPS hostname
+      },
+      {
+        protocol: 'http', // If you need to allow HTTP sources too (less secure)
+        hostname: '**', // Allows any HTTP hostname
+      },
+    ],
   },
 };
 

@@ -13,7 +13,7 @@ function MediumCard({ img, location, price, nights, rating }) {
           className="rounded-xl"
           style={{ objectFit: "cover" }}
         />
-        <HeartIcon className="absolute top-3 right-3 h-7 cursor-pointer text-white" />
+        
       </div>
 
       <div className="flex justify-between">

@@ -29,7 +29,7 @@ exports.createBooking = async (req, res) => {
       endDate: { $gte: new Date(startDate) }
     });
     if (existingBookings.length > 0) {
-      return res.status(409).json({ message: 'already booked, kindly select different date(s)' });
+      return res.status(409).json({ message: 'Already booked, kindly select different date(s)' });
     }
 
     // Create booking

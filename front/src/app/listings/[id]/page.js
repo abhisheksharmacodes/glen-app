@@ -82,7 +82,7 @@ function ListingDetail() {
       });
       if (res.status === 409) {
         const data = await res.json();
-        setBookingError(data.message || 'already booked, kindly select different date(s)');
+        setBookingError(data.message || 'Already booked, kindly select different date(s)');
       } else if (!res.ok) {
         const data = await res.json();
         setBookingError(data.message || 'Booking failed');
@@ -157,6 +157,20 @@ function ListingDetail() {
               <p className="text-gray-600 text-sm mb-4">
                 {listingData.guests} guests · {listingData.bedrooms} bedroom · {listingData.beds} bed · {listingData.bathrooms} bathrooms
               </p>
+
+              {/* Google Maps Embed */}
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-2">Location on Map</h3>
+                <iframe
+                  width="100%"
+                  height="300"
+                  style={{ border: 0, borderRadius: '12px' }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps?q=${listingData.coordinates.lat},${listingData.coordinates.long}&z=14&output=embed`}
+                ></iframe>
+              </div>
 
               {/* Guest Favourite / Rating / Reviews */}
               <div className="flex items-center space-x-4 mb-6">

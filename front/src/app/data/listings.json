@@ -32,8 +32,8 @@
     "price": 3848,
     "currency": "₹",
     "coordinates": {
-      "long": -0.0022275,
-      "lat": 51.542165
+      "long": 77.0266,
+      "lat": 28.4595
     }
   },
   {
@@ -69,8 +69,8 @@
     "price": 5144,
     "currency": "₹",
     "coordinates": {
-      "long": -0.095091,
-      "lat": 51.484401
+      "long": 76.2711,
+      "lat": 10.8505
     }
   },
   {
@@ -106,8 +106,8 @@
     "price": 2064,
     "currency": "₹",
     "coordinates": {
-      "long": -0.135638,
-      "lat": 51.521248
+      "long": 75.7873,
+      "lat": 26.9124
     }
   },
   {
@@ -143,8 +143,8 @@
     "price": 3348,
     "currency": "₹",
     "coordinates": {
-      "long": -0.069961,
-      "lat": 51.472618
+      "long": 77.1887,
+      "lat": 32.2396
     }
   },
   {
@@ -180,8 +180,8 @@
     "price": 2622,
     "currency": "₹",
     "coordinates": {
-      "long": -0.080417,
-      "lat": 51.475631
+      "long": 77.2090,
+      "lat": 28.6139
     }
   },
   {
@@ -217,8 +217,378 @@
     "price": 3398,
     "currency": "₹",
     "coordinates": {
-      "long": -0.094901,
-      "lat": 51.514004
+      "long": 73.7125,
+      "lat": 24.5854
+    }
+  },
+  {
+    "title": "Seaside Penthouse Retreat",
+    "location": "Entire penthouse in Goa, India",
+    "guests": 5,
+    "bedrooms": 2,
+    "beds": 3,
+    "bathrooms": 2,
+    "images": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca"
+    ],
+    "description": {
+      "main": "Enjoy panoramic sea views from this luxury penthouse in Goa. Features a private terrace, modern kitchen, and direct beach access.",
+      "features": [
+        { "icon": "fa-solid fa-water", "text": "Oceanfront" },
+        { "icon": "fa-solid fa-umbrella-beach", "text": "Private terrace" },
+        { "icon": "fa-solid fa-utensils", "text": "Modern kitchen" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Sonia",
+      "yearsHosting": 2,
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    "rating": 4.95,
+    "reviews": 210,
+    "price": 7999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 74.1240,
+      "lat": 15.2993
+    }
+  },
+  {
+    "title": "Eco Bamboo Treehouse",
+    "location": "Unique stay in Wayanad, India",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "images": [
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9",
+      "https://st.hzcdn.com/simgs/9ad1d7e10136f3d0_14-8119/_.jpg",
+      "https://naturehomes.in/wp-content/uploads/2023/04/amaltas.jpg",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b"
+    ],
+    "description": {
+      "main": "Live among the treetops in this eco-friendly bamboo treehouse. Perfect for couples seeking adventure and tranquility.",
+      "features": [
+        { "icon": "fa-solid fa-leaf", "text": "Eco-friendly" },
+        { "icon": "fa-solid fa-tree", "text": "Treehouse experience" },
+        { "icon": "fa-solid fa-mountain", "text": "Forest views" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Arjun",
+      "yearsHosting": 1,
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    "rating": 4.88,
+    "reviews": 98,
+    "price": 3499,
+    "currency": "₹",
+    "coordinates": {
+      "long": 76.1320,
+      "lat": 11.6854
+    }
+  },
+  {
+    "title": "Desert Camp Under the Stars",
+    "location": "Luxury tent in Jaisalmer, India",
+    "guests": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "images": [
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    ],
+    "description": {
+      "main": "Experience the magic of the Thar Desert in a luxury tent with all modern comforts. Enjoy camel rides and traditional Rajasthani cuisine.",
+      "features": [
+        { "icon": "fa-solid fa-campground", "text": "Desert camp" },
+        { "icon": "fa-solid fa-fire", "text": "Campfire nights" },
+        { "icon": "fa-solid fa-utensils", "text": "Traditional cuisine" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Salim",
+      "yearsHosting": 4,
+      "avatar": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    "rating": 4.7,
+    "reviews": 67,
+    "price": 2999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 70.9083,
+      "lat": 26.9157
+    }
+  },
+  {
+    "title": "Urban Chic Loft",
+    "location": "Entire loft in Mumbai, India",
+    "guests": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "bathrooms": 1,
+    "images": [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "description": {
+      "main": "Stay in the heart of Mumbai in this stylish urban loft. Walk to cafes, shops, and nightlife. Perfect for business or leisure.",
+      "features": [
+        { "icon": "fa-solid fa-city", "text": "Central location" },
+        { "icon": "fa-solid fa-utensils", "text": "Modern kitchen" },
+        { "icon": "fa-solid fa-wifi", "text": "High-speed WiFi" },
+        { "icon": "fa-solid fa-tv", "text": "Smart TV" }
+      ]
+    },
+    "host": {
+      "name": "Rhea",
+      "yearsHosting": 3,
+      "avatar": "https://randomuser.me/api/portraits/women/65.jpg"
+    },
+    "rating": 4.82,
+    "reviews": 154,
+    "price": 5999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 72.8777,
+      "lat": 19.0760
+    }
+  },
+  {
+    "title": "Tea Estate Bungalow",
+    "location": "Entire bungalow in Darjeeling, India",
+    "guests": 8,
+    "bedrooms": 4,
+    "beds": 5,
+    "bathrooms": 4,
+    "images": [
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "description": {
+      "main": "Relax in a colonial-era bungalow surrounded by tea gardens. Enjoy mountain views, fireplaces, and home-cooked meals.",
+      "features": [
+        { "icon": "fa-solid fa-mug-hot", "text": "Tea estate views" },
+        { "icon": "fa-solid fa-fire", "text": "Fireplace" },
+        { "icon": "fa-solid fa-utensils", "text": "Home-cooked meals" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Mrs. Sen",
+      "yearsHosting": 6,
+      "avatar": "https://randomuser.me/api/portraits/women/50.jpg"
+    },
+    "rating": 4.9,
+    "reviews": 120,
+    "price": 8999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 88.2627,
+      "lat": 27.0360
+    }
+  },
+  {
+    "title": "Backwaters Houseboat",
+    "location": "Entire houseboat in Alappuzha, India",
+    "guests": 6,
+    "bedrooms": 3,
+    "beds": 3,
+    "bathrooms": 2,
+    "images": [
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    ],
+    "description": {
+      "main": "Cruise the Kerala backwaters in a traditional houseboat. Includes chef, air conditioning, and sunset views.",
+      "features": [
+        { "icon": "fa-solid fa-ship", "text": "Houseboat experience" },
+        { "icon": "fa-solid fa-utensils", "text": "Onboard chef" },
+        { "icon": "fa-solid fa-sun", "text": "Sunset deck" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Vijay",
+      "yearsHosting": 5,
+      "avatar": "https://randomuser.me/api/portraits/men/60.jpg"
+    },
+    "rating": 4.85,
+    "reviews": 77,
+    "price": 10999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 76.3388,
+      "lat": 9.4981
+    }
+  },
+  {
+    "title": "Colonial Mansion",
+    "location": "Entire mansion in Kolkata, India",
+    "guests": 10,
+    "bedrooms": 5,
+    "beds": 7,
+    "bathrooms": 5,
+    "images": [
+      "https://4.imimg.com/data4/RJ/EW/MY-16597346/flat.jpg",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "description": {
+      "main": "Step back in time in this grand colonial mansion with antique furnishings, gardens, and a private library.",
+      "features": [
+        { "icon": "fa-solid fa-landmark", "text": "Historic mansion" },
+        { "icon": "fa-solid fa-book", "text": "Private library" },
+        { "icon": "fa-solid fa-tree", "text": "Large gardens" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Mr. Dutta",
+      "yearsHosting": 8,
+      "avatar": "https://randomuser.me/api/portraits/men/70.jpg"
+    },
+    "rating": 4.93,
+    "reviews": 65,
+    "price": 12999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 88.3639,
+      "lat": 22.5726
+    }
+  },
+  {
+    "title": "Hilltop Glass Cabin",
+    "location": "Entire cabin in Mussoorie, India",
+    "guests": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "bathrooms": 1,
+    "images": [
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+    ],
+    "description": {
+      "main": "Wake up to sunrise views in this modern glass cabin perched on a hilltop. Cozy, private, and perfect for couples or small families.",
+      "features": [
+        { "icon": "fa-solid fa-mountain", "text": "Hilltop views" },
+        { "icon": "fa-solid fa-fire", "text": "Fireplace" },
+        { "icon": "fa-solid fa-utensils", "text": "Kitchenette" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Naina",
+      "yearsHosting": 2,
+      "avatar": "https://randomuser.me/api/portraits/women/80.jpg"
+    },
+    "rating": 4.89,
+    "reviews": 112,
+    "price": 6999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 78.0662,
+      "lat": 30.4599
+    }
+  },
+  {
+    "title": "Luxury Sky Villa",
+    "location": "Entire villa in Hyderabad, India",
+    "guests": 7,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 3,
+    "images": [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "description": {
+      "main": "Soar above the city in this luxury sky villa with a rooftop pool, gym, and panoramic city views.",
+      "features": [
+        { "icon": "fa-solid fa-swimming-pool", "text": "Rooftop pool" },
+        { "icon": "fa-solid fa-dumbbell", "text": "Private gym" },
+        { "icon": "fa-solid fa-city", "text": "City views" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Rohit",
+      "yearsHosting": 3,
+      "avatar": "https://randomuser.me/api/portraits/men/90.jpg"
+    },
+    "rating": 4.91,
+    "reviews": 88,
+    "price": 11999,
+    "currency": "₹",
+    "coordinates": {
+      "long": 78.4867,
+      "lat": 17.3850
+    }
+  },
+  {
+    "title": "Riverside Farmhouse",
+    "location": "Entire farmhouse in Rishikesh, India",
+    "guests": 6,
+    "bedrooms": 3,
+    "beds": 4,
+    "bathrooms": 2,
+    "images": [
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ],
+    "description": {
+      "main": "Unwind in this peaceful riverside farmhouse with organic gardens, yoga deck, and bonfire nights.",
+      "features": [
+        { "icon": "fa-solid fa-water", "text": "Riverside location" },
+        { "icon": "fa-solid fa-seedling", "text": "Organic gardens" },
+        { "icon": "fa-solid fa-fire", "text": "Bonfire nights" },
+        { "icon": "fa-solid fa-wifi", "text": "Free WiFi" }
+      ]
+    },
+    "host": {
+      "name": "Meera",
+      "yearsHosting": 4,
+      "avatar": "https://randomuser.me/api/portraits/women/95.jpg"
+    },
+    "rating": 4.87,
+    "reviews": 73,
+    "price": 7499,
+    "currency": "₹",
+    "coordinates": {
+      "long": 78.2676,
+      "lat": 30.0869
     }
   }
 ] 
