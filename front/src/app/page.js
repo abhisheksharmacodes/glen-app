@@ -149,9 +149,9 @@ export default function Home() {
       <Header searchInput={searchInput} setSearchInput={setSearchInput} />
       <main>
         <section className="max-w-7xl mx-auto px-8 sm:px-16">
-          <h2 className="text-4xl font-semibold py-8">Popular properties</h2>
           {/* Modern pill-shaped filter bar */}
-          <div className="flex justify-center mb-8">
+          
+          <div className="flex justify-center mt-14 mb-2">
             <div className="flex items-center bg-white rounded-full shadow-md px-3 py-1 border border-gray-200">
               {/* Where */}
               <div className="flex flex-col px-4 py-2">
@@ -229,7 +229,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div style={{scrollbarWidth:'none'}} className="flex space-x-3 overflow-x-scroll overflow-y-hidden scrollbar-hide p-3 -ml-3">
+          <h2 className="text-2xl font-semibold py-6">Popular properties</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-3">
             {filteredProperties?.map(({ _id, images, location, price, rating }) => (
               <Link key={_id} href={`/listings/${_id}`}>
                 <MediumCard
