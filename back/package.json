@@ -20,6 +20,6 @@
   "scripts": {
     "start": "node server.js",
     "build": "echo \"No build step specified\"",
-    "dev": "nodemon Server.js"
+    "dev": "nodemon server.js"
   }
 }
