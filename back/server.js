@@ -35,7 +35,9 @@ mongoose
     // useUnifiedTopology: true,
   })
   .then(() => {
-    // // console.log("Connected to MongoDB");
-    app.listen(server.port, '0.0.0.0', () => console.log(`Server running on ${server.hostname}:${server.port}`));
+    console.log("Connected to MongoDB");
+    // app.listen(server.port, '0.0.0.0', () => console.log(`Server running on ${server.hostname}:${server.port}`));
   })
   .catch((error) => console.error("Database connection failed:", error));
+
+module.exports = app;
