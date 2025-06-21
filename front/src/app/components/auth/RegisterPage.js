@@ -65,41 +65,41 @@ function RegisterPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg">
-        <h3 className="text-2xl font-bold text-center">Register for StayFinder</h3>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md px-6 sm:px-8 py-6 sm:py-8 mt-4 text-left bg-white shadow-lg rounded-lg">
+        <h3 className="text-xl sm:text-2xl font-bold text-center mb-6">Register for StayFinder</h3>
         <form onSubmit={handleRegister}>
-          <div className="mt-4">
+          <div className="space-y-4 sm:space-y-6">
             <div>
-              <label className="block" htmlFor="name">Full Name</label>
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-1" htmlFor="name">Full Name</label>
               <input
                 type="text"
                 placeholder="Enter your full name"
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
                 disabled={isLoading}
               />
             </div>
-            <div className="mt-4">
-              <label className="block" htmlFor="email">Email</label>
+            <div>
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-1" htmlFor="email">Email</label>
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isLoading}
               />
             </div>
-            <div className="mt-4">
-              <label className="block" htmlFor="password">Password</label>
+            <div>
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-1" htmlFor="password">Password</label>
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm sm:text-base"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -118,16 +118,16 @@ function RegisterPage() {
                 disabled={isLoading}
               />
             </div>
-            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
             <button 
               type="submit" 
-              className={`px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900 w-full ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`w-full px-4 sm:px-6 py-2 sm:py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors text-sm sm:text-base font-medium ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={isLoading}
             >
-              {isLoading ? 'Registering...' : 'Register'}
+              {isLoading ? 'Creating account...' : 'Register'}
             </button>
-            <p className="mt-4 text-center text-sm">
-              Already have an account? <a href="/login" className="text-blue-600 hover:underline">Login here</a>
+            <p className="text-center text-sm sm:text-base">
+              Already have an account? <a href="/login" className="text-blue-600 hover:underline font-medium">Login here</a>
             </p>
           </div>
         </form>

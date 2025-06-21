@@ -7,6 +7,13 @@ function isOverlap(start1, end1, start2, end2) {
   return (start1 <= end2) && (end1 >= start2);
 }
 
+// Helper: Check if date is in the past
+function isDateInPast(date) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set to start of today
+  return new Date(date) < today;
+}
+
 // POST /api/bookings
 exports.createBooking = async (req, res) => {
   try {
@@ -17,6 +24,25 @@ exports.createBooking = async (req, res) => {
     const listing = await Listing.findById(listingId);
     if (!listing) return res.status(404).json({ message: 'Listing not found' });
 
+    // Validate dates
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    
+    // Check if start date is in the past
+    if (isDateInPast(startDate)) {
+      return res.status(400).json({ message: 'Start date cannot be in the past' });
+    }
+    
+    // Check if end date is in the past
+    if (isDateInPast(endDate)) {
+      return res.status(400).json({ message: 'End date cannot be in the past' });
+    }
+    
+    // Check if start date is after end date
+    if (startDateObj > endDateObj) {
+      return res.status(400).json({ message: 'Start date must be before or equal to end date' });
+    }
+
     // Validate guests
     if (guests < 1 || guests > listing.guests) {
       return res.status(400).json({ message: `Guests must be between 1 and ${listing.guests}` });
@@ -25,8 +51,8 @@ exports.createBooking = async (req, res) => {
     // Check for overlapping bookings
     const existingBookings = await Booking.find({
       listingId,
-      startDate: { $lte: new Date(endDate) },
-      endDate: { $gte: new Date(startDate) }
+      startDate: { $lte: endDateObj },
+      endDate: { $gte: startDateObj }
     });
     if (existingBookings.length > 0) {
       return res.status(409).json({ message: 'Already booked, kindly select different date(s)' });
@@ -36,8 +62,8 @@ exports.createBooking = async (req, res) => {
     const booking = new Booking({
       listingId,
       userId,
-      startDate,
-      endDate,
+      startDate: startDateObj,
+      endDate: endDateObj,
       guests
     });
     await booking.save();

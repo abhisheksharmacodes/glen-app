@@ -61,7 +61,7 @@ export default function Home() {
             const bookings = await res.json();
             map[listing._id] = bookings.map(b => ({ start: new Date(b.startDate), end: new Date(b.endDate) }));
           }
-        } catch {}
+        } catch { }
       }));
       setBookingsMap(map);
     };
@@ -148,101 +148,175 @@ export default function Home() {
     <div>
       <Header searchInput={searchInput} setSearchInput={setSearchInput} />
       <main>
-        <section className="max-w-7xl mx-auto px-8 sm:px-16">
-          {/* Modern pill-shaped filter bar */}
-          
-          <div className="flex justify-center mt-14 mb-2">
-            <div className="flex items-center bg-white rounded-full shadow-md px-3 py-1 border border-gray-200">
-              {/* Where */}
-              <div className="flex flex-col px-4 py-2">
-                <span className="text-xs font-semibold text-gray-700">Where</span>
-                <input
-                  type="text"
-                  placeholder="Search destinations"
-                  className="outline-none bg-transparent text-sm w-26"
-                  value={searchInput}
-                  onChange={e => setSearchInput(e.target.value)}
-                  style={{ minWidth: 120 }}
-                />
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Responsive filter bar */}
+          <div className="flex justify-center mt-2 sm:mt-14 mb-4">
+            <div className="w-full max-w-4xl">
+              {/* Desktop filter bar */}
+              <div className="hidden lg:flex items-center bg-white rounded-full shadow-md px-3 py-1 border border-gray-200">
+                {/* Where */}
+                <div className="flex flex-col px-4 py-2">
+                  <span className="text-xs font-semibold text-gray-700">Where</span>
+                  <input
+                    type="text"
+                    placeholder="Search destinations"
+                    className="outline-none bg-transparent text-sm w-26"
+                    value={searchInput}
+                    onChange={e => setSearchInput(e.target.value)}
+                    style={{ minWidth: 120 }}
+                  />
+                </div>
+                <div className="h-8 border-l mx-2" />
+                {/* Available on */}
+                <div className="flex flex-col px-4 py-2">
+                  <span className="text-xs font-semibold text-gray-700">Available on</span>
+                  <input
+                    type="date"
+                    className="outline-none bg-transparent text-sm w-26"
+                    value={availabilityDate}
+                    onChange={e => setAvailabilityDate(e.target.value)}
+                    min={todayStr}
+                    style={{ minWidth: 100 }}
+                  />
+                </div>
+                <div className="h-8 border-l mx-2" />
+                {/* Min price */}
+                <div className="flex flex-col px-4 py-2">
+                  <span className="text-xs font-semibold text-gray-700">Min price</span>
+                  <input
+                    type="number"
+                    min="0"
+                    step={100}
+                    placeholder="Min price"
+                    className="outline-none bg-transparent text-sm w-10"
+                    value={minPrice}
+                    onChange={e => setMinPrice(e.target.value)}
+                    style={{ minWidth: 80 }}
+                  />
+                </div>
+                <div className="h-8 border-l mx-2" />
+                {/* Max price */}
+                <div className="flex flex-col px-4 py-2">
+                  <span className="text-xs font-semibold text-gray-700">Max price</span>
+                  <input
+                    type="number"
+                    min="0"
+                    step={100}
+                    placeholder="Max price"
+                    className="outline-none bg-transparent text-sm w-16"
+                    value={maxPrice}
+                    onChange={e => setMaxPrice(e.target.value)}
+                    style={{ minWidth: 80 }}
+                  />
+                </div>
+                {/* Icon at the end */}
+                <div className="ml-4 flex items-center justify-center">
+                  {isAnyFilterApplied() ? (
+                    <button
+                      onClick={clearFilters}
+                      className="bg-gray-200 hover:bg-gray-300 rounded-full p-2 text-gray-600"
+                      title="Clear filters"
+                    >
+                      <FaTimes size={18} className="m-[2px]" />
+                    </button>
+                  ) : (
+                    <button
+                      className="bg-rose-500 hover:bg-rose-600 rounded-full p-2 text-white"
+                      title="Search"
+                    >
+                      <FaSearch size={18} className="m-[3px]" />
+                    </button>
+                  )}
+                </div>
               </div>
-              <div className="h-8 border-l mx-2" />
-              {/* Check in */}
-              <div className="flex flex-col px-4 py-2">
-                <span className="text-xs font-semibold text-gray-700">Available on</span>
-                <input
-                  type="date"
-                  className="outline-none bg-transparent text-sm w-26"
-                  value={availabilityDate}
-                  onChange={e => setAvailabilityDate(e.target.value)}
-                  min={todayStr}
-                  style={{ minWidth: 100 }}
-                />
-              </div>
-              <div className="h-8 border-l mx-2" />
-              {/* Check out replaced with Min price */}
-              <div className="flex flex-col px-4 py-2">
-                <span className="text-xs font-semibold text-gray-700">Min price</span>
-                <input
-                  type="number"
-                  min="0"
-                  step={100}
-                  placeholder="Min price"
-                  className="outline-none bg-transparent text-sm w-10"
-                  value={minPrice}
-                  onChange={e => setMinPrice(e.target.value)}
-                  style={{ minWidth: 80 }}
-                />
-              </div>
-              <div className="h-8 border-l mx-2" />
-              {/* Who replaced with Max price */}
-              <div className="flex flex-col px-4 py-2">
-                <span className="text-xs font-semibold text-gray-700">Max price</span>
-                <input
-                  type="number"
-                  min="0"
-                  step={100}
-                  placeholder="Max price"
-                  className="outline-none bg-transparent text-sm w-16"
-                  value={maxPrice}
-                  onChange={e => setMaxPrice(e.target.value)}
-                  style={{ minWidth: 80 }}
-                />
-              </div>
-              {/* Icon at the end */}
-              <div className="ml-4 flex items-center justify-center">
-                {isAnyFilterApplied() ? (
-                  <button
-                    onClick={clearFilters}
-                    className="bg-gray-200 hover:bg-gray-300 rounded-full p-2 text-gray-600"
-                    title="Clear filters"
-                  >
-                    <FaTimes size={18} className="m-[2px]" />
-                  </button>
-                ) : (
-                  <button
-                    className="bg-rose-500 hover:bg-rose-600 rounded-full p-2 text-white"
-                    title="Search"
-                  >
-                    <FaSearch size={18} className="m-[3px]" />
-                  </button>
-                )}
+
+              {/* Mobile/Tablet filter bar */}
+              <div className="lg:hidden bg-white rounded-lg shadow-md p-4 border border-gray-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Where */}
+                  <div className="flex flex-col">
+                    <span className="text-xs font-semibold text-gray-700 mb-1">Where</span>
+                    <input
+                      type="text"
+                      placeholder="Search destinations"
+                      className="outline-none bg-gray-50 rounded-md px-3 py-2 text-sm"
+                      value={searchInput}
+                      onChange={e => setSearchInput(e.target.value)}
+                    />
+                  </div>
+                  {/* Available on */}
+                  <div className="flex flex-col">
+                    <span className="text-xs font-semibold text-gray-700 mb-1">Available on</span>
+                    <input
+                      type="date"
+                      className="outline-none bg-gray-50 rounded-md px-3 py-2 text-sm"
+                      value={availabilityDate}
+                      onChange={e => setAvailabilityDate(e.target.value)}
+                      min={todayStr}
+                    />
+                  </div>
+                  {/* Min price */}
+                  <div className="flex flex-col">
+                    <span className="text-xs font-semibold text-gray-700 mb-1">Min price</span>
+                    <input
+                      type="number"
+                      min="0"
+                      step={100}
+                      placeholder="Min price"
+                      className="outline-none bg-gray-50 rounded-md px-3 py-2 text-sm"
+                      value={minPrice}
+                      onChange={e => setMinPrice(e.target.value)}
+                    />
+                  </div>
+                  {/* Max price */}
+                  <div className="flex flex-col">
+                    <span className="text-xs font-semibold text-gray-700 mb-1">Max price</span>
+                    <input
+                      type="number"
+                      min="0"
+                      step={100}
+                      placeholder="Max price"
+                      className="outline-none bg-gray-50 rounded-md px-3 py-2 text-sm"
+                      value={maxPrice}
+                      onChange={e => setMaxPrice(e.target.value)}
+                    />
+                  </div>
+                </div>
+                {/* Mobile filter actions */}
+                <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
+                  {isAnyFilterApplied() ? (
+                    <button
+                      onClick={clearFilters}
+                      className="flex items-center space-x-2 text-gray-600 hover:text-gray-800"
+                    >
+                      <FaTimes size={16} />
+                      <span className="text-sm">Clear filters</span>
+                    </button>
+                  ) : (
+                    <div className="flex items-center space-x-2 text-gray-500">
+                      <FaSearch size={16} />
+                      <span className="text-sm">Search properties</span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-          <h2 className="text-2xl font-semibold py-6">Popular properties</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-3">
-            {filteredProperties?.map(({ _id, images, location, price, rating }) => (
-              <Link key={_id} href={`/listings/${_id}`}>
-                <MediumCard
-                  img={images[0]}
-                  location={location}
-                  price={price}
-                  nights={2}
-                  rating={rating}
-                />
-              </Link>
+
+          <h2 className="text-xl sm:text-2xl font-semibold py-4 sm:py-6 px-4 sm:px-0">Popular properties</h2>
+          {filteredProperties.length ? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 p-4 sm:p-0">
+            {filteredProperties?.map(({_id, images, location, price, rating}) => (
+            <Link key={_id} href={`/listings/${_id}`}>
+              <MediumCard
+                img={images[0]}
+                location={location}
+                price={price}
+                nights={2}
+                rating={rating}
+              />
+            </Link>
             ))}
-          </div>
+          </div> : <span className="w-full">No properties match your current filters.</span>}
         </section>
       </main>
 
